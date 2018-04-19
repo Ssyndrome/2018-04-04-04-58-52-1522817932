@@ -17,17 +17,18 @@ public class Order {
 
     public BigDecimal calculate() {
         BigDecimal subTotal = new BigDecimal(0);
-
-        // Total up line items
-        for (OrderLineItem lineItem : orderLineItemList) {
-            subTotal = subTotal.add(lineItem.getPrice());
-        }
-
-        // Subtract discounts
-        for (BigDecimal discount : discounts) {
-            subTotal = subTotal.subtract(discount);
-        }
-
+//
+//        // Total up line items
+//        for (OrderLineItem lineItem : orderLineItemList) {
+//            subTotal = subTotal.add(lineItem.getPrice());
+//        }
+//
+//        // Subtract discounts
+//        for (BigDecimal discount : discounts) {
+//            subTotal = subTotal.subtract(discount);
+//        }
+        PriceCaculator priceCacul = new PriceCaculator(subTotal);
+        subTotal = priceCacul.getSubTotal(orderLineItemList, discounts);
         // calculate tax
         BigDecimal tax = subTotal.multiply(this.tax);
 
