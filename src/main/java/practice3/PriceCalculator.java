@@ -3,10 +3,10 @@ package practice3;
 import java.math.BigDecimal;
 import java.util.List;
 
-public class PriceCaculator {
+public class PriceCalculator {
     BigDecimal subTotal;
 
-    public PriceCaculator(BigDecimal subTotal) {
+    public PriceCalculator(BigDecimal subTotal) {
         this.subTotal = subTotal;
     }
 
